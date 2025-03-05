@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class AutoboxingUnboxingExample {
+    public static List<Integer> parseStringToIntegers(String[] strNumbers) {
+        List<Integer> numbers = new ArrayList<>();
+        for (String str : strNumbers) {
+            try {
+                numbers.add(Integer.parseInt(str)); // Autoboxing
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid number format: " + str);
+            }
+        }
+        return numbers;
+    }
+
+    public static int calculateSum(List<Integer> numbers) {
+        int sum = 0;
+        for (Integer num : numbers) {
+            sum += num; // Unboxing
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+
+        String[] strNumbers = { "10", "20", "30", "40", "50" };
+
+        List<Integer> numbers = parseStringToIntegers(strNumbers);
+
+        int sum = calculateSum(numbers);
+        System.out.println("Sum of numbers: " + sum);
+    }
+}
